@@ -14,5 +14,29 @@ There are two types differents connectors:
 
 - Sink: Where read a topic and write a thirds parts
 
-See [List Pages](https://www.confluent.io/product/connectors/?utm_medium=sem&utm_source=google&utm_campaign=ch.sem_br.nonbrand_tp.prs_tgt.kafka-connectors_mt.xct_rgn.emea_lng.eng_dv.all_con.kafka-connectors&utm_term=kafka+connectors+list&placement=&device=c&creative=&gclid=CjwKCAiAo4OQBhBBEiwA5KWu_5T468HK1OJu9zwwnW6f3RrRCmyHfYgn0-yPlEHw4Wb0g5DrFS8i6hoCJ18QAvD_BwE).
+See [List Connectors](https://www.confluent.io/product/connectors/?utm_medium=sem&utm_source=google&utm_campaign=ch.sem_br.nonbrand_tp.prs_tgt.kafka-connectors_mt.xct_rgn.emea_lng.eng_dv.all_con.kafka-connectors&utm_term=kafka+connectors+list&placement=&device=c&creative=&gclid=CjwKCAiAo4OQBhBBEiwA5KWu_5T468HK1OJu9zwwnW6f3RrRCmyHfYgn0-yPlEHw4Wb0g5DrFS8i6hoCJ18QAvD_BwE).
+
+## Build
+
+```
+$ git clone https://github.com/jotamayo/MongoDB-Kafka-Connector-first-steps.git
+$ cd MongoDB-Kafka-Connector-first-steps
+$ docker-compose -d
+```
+
+You must verify
+```
+Launch command
+```
+
+You must see four puglins to the connector
+```
+Resultado
+```
+
+If the resultt is the same, kafka conector is done yet and you can go to
+
+- kafka hub
+- You will can connect with database mongodb, with mongodb compass form example with this conection
+
 
