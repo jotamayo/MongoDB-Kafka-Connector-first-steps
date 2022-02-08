@@ -24,19 +24,15 @@ $ cd MongoDB-Kafka-Connector-first-steps
 $ docker-compose -d
 ```
 
-You must verify
-```
-Launch command
-```
+When finish all images to run, then you can go to
 
-You must see four puglins to the connector
-```
-Resultado
-```
+- See [Control center](http://localhost:9021)
+- You will can connect with database mongodb, with mongodb compass form example with
 
-If the resultt is the same, kafka conector is done yet and you can go to
-
-- kafka hub
-- You will can connect with database mongodb, with mongodb compass form example with this conection
+```
+username: =admin
+password: 123
+database: admin
+```
 
 
