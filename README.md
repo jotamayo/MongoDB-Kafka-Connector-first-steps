@@ -44,8 +44,9 @@ cop> db.getCollectionNames()
 ```
 
 We will create a new topic in kafka, we need download binary commands files before in [Download](https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.12-3.1.0.tgz)
-```
 
+```
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic first --partitions 1 --replication-factor 1
 ```
 
 
