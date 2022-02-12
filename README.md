@@ -47,6 +47,7 @@ We will create a new topic in kafka, we need download binary commands files befo
 
 ```
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic first --partitions 1 --replication-factor 1
+Created topic creando.
 ```
 
 
