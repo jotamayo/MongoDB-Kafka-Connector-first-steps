@@ -43,6 +43,12 @@ cop> db.getCollectionNames()
 [ ]
 ```
 
+We will create a new topic in kafka, we need download command files before in (Download)[https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka-3.1.0-src.tgz] 
+```
+
+```
+
+
 It's time to create our first sink connector
 
 ```
@@ -58,7 +64,7 @@ curl --location --request POST 'http://localhost:8083/connectors' \
         "output.json.formatter":"com.mongodb.kafka.connect.source.json.formatter.SimplifiedJson",
         "output.schema.infer.value":true,
         "tasks.max": "1",
-        "connection.uri": "mongodb://admin:123op@mongodb:27017/cop?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
+        "connection.uri": "mongodb://admin:123@mongodb:27017/cop?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
         "copy.existing": "true",
         "pipeline": "[{\"$match\": {}}]",
         "publish.full.document.only": "true",
@@ -68,5 +74,11 @@ curl --location --request POST 'http://localhost:8083/connectors' \
         "collection": "conector-test"
     }
 }
+```
+
+We can check  status new connector now
+
+```
+
 ```
 
