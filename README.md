@@ -49,7 +49,7 @@ It's time to create our first sink connector
 curl --location --request POST 'http://localhost:8083/connectors' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "MongoDBBoxesSinkTest",
+    "name": "MongoDBFirstSink",
     "config": {
         "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
         "tasks.max": "1",
