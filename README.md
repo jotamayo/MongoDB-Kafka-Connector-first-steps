@@ -43,7 +43,7 @@ cop> db.getCollectionNames()
 [ ]
 ```
 
-We will create a new topic in kafka, we need download command files before in [Download](https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka-3.1.0-src.tgz)
+We will create a new topic in kafka, we need download binary commands files before in [Download](https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.12-3.1.0.tgz)
 ```
 
 ```
