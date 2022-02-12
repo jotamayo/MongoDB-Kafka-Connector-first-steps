@@ -27,12 +27,12 @@ $ docker-compose -d
 When finish all images to run, then you can go to
 
 - See [Control center](http://localhost:9021)
-- You will can connect with database mongodb, with mongodb compass form example with
+- You will can connect with database mongodb
+
 
 ```
-username: =admin
-password: 123
-database: admin
+docker exec -it mongodb bash
+mongosh "mongodb://localhost:27017" --username admin --authenticationDatabase admin
 ```
 
 
