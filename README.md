@@ -35,19 +35,26 @@ docker exec -it mongodb bash
 mongosh "mongodb://localhost:27017" --username admin --authenticationDatabase admin
 test> use cop
 cop>
-cop> db.cop.insertOne("msg", "message")
+cop> db.test.insertOne("msg", "message")
 cop> db.getCollectionNames()
 [ 'test' ]
 cop> db.test.drop()
 cop> db.getCollectionNames()
 [ ]
+cop > db.firstcollection.insertOne("hello world")
+{
+  acknowledged: true,
+  insertedId: ObjectId("6208db954d9b42dc099b6043")
+}
+db.firstcollection.countDocuments()
+1
 ```
 
 We will create a new topic in kafka, we need download binary commands files before in [Download](https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.12-3.1.0.tgz)
 
 ```
-./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic first --partitions 1 --replication-factor 1
-Created topic creando.
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic first-topic --partitions 1 --replication-factor 1
+Created topic first-topic.
 ```
 
 
@@ -62,7 +69,7 @@ curl --location --request POST 'http://localhost:8083/connectors' \
         "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
         "tasks.max": "1",
         "output.format.value" : "schema",
-        "topics":"conector-test",
+        "topics":"first-topic",
         "output.json.formatter":"com.mongodb.kafka.connect.source.json.formatter.SimplifiedJson",
         "output.schema.infer.value":true,
         "tasks.max": "1",
@@ -72,8 +79,8 @@ curl --location --request POST 'http://localhost:8083/connectors' \
         "publish.full.document.only": "true",
         "copy.existing.max.threads": "1",
         "copy.existing.queue.size": "160000",
-        "database": "admin",
-        "collection": "conector-test"
+        "database": "cop",
+        "collection": "first-collection"
     }
 }
 ```
@@ -81,6 +88,41 @@ curl --location --request POST 'http://localhost:8083/connectors' \
 We can check  status new connector now
 
 ```
+curl --location --request GET 'http://localhost:8083/connectors/MongoDBFirstSink/status' \
+--data-raw ''
 
+{
+    "name": "MongoDBFirstSink",
+    "connector": {
+        "state": "RUNNING",
+        "worker_id": "kafka-connect:8083"
+    },
+    "tasks": [
+        {
+            "id": 0,
+            "state": "RUNNING",
+            "worker_id": "kafka-connect:8083"
+        }
+    ],
+    "type": "sink"
+}
 ```
 
+If you want delete it, you need launch
+
+```
+curl --location --request DELETE 'http://localhost:8083/connectors/MongoDBFirstSink' \
+--header 'Content-Type: application/json' \
+--data-raw '   
+```
+
+Or list all connectors is this dns
+
+```
+curl --location --request GET 'http://localhost:8083/connectors' \
+--data-raw ''
+
+[
+    "MongoDBFirstSink",
+]
+``` 
