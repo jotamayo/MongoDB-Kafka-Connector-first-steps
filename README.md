@@ -72,17 +72,17 @@ curl --location --request POST 'http://localhost:8083/connectors' \
         "topics":"first-topic",
         "output.json.formatter":"com.mongodb.kafka.connect.source.json.formatter.SimplifiedJson",
         "output.schema.infer.value":true,
-        "tasks.max": "1",
-        "connection.uri": "mongodb://admin:123@mongodb:27017/cop?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
+        "connection.uri": "mongodb://admin:123@mongodb:27017/admin?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
         "copy.existing": "true",
         "pipeline": "[{\"$match\": {}}]",
         "publish.full.document.only": "true",
         "copy.existing.max.threads": "1",
         "copy.existing.queue.size": "160000",
         "database": "cop",
-        "collection": "first-collection"
+        "collection": "firstcollection"
     }
 }
+'    
 ```
 
 We can check  status new connector now
@@ -126,3 +126,20 @@ curl --location --request GET 'http://localhost:8083/connectors' \
     "MongoDBFirstSink",
 ]
 ``` 
+
+We launch a producer
+
+```
+./kafka-console-producer.sh --broker-list localhost:9092 --topic first-topic --property parse.key=true --property key.separator=: < /Users/soto/Downloads/data/exampleWithKey1000.data
+```
+
+So, we can see how there are new messages in a topic called first-topic
+
+
+
+and there are new messages in a collection firstcollection
+
+```
+cop> db.firstcollection.countDocuments()
+8
+```
