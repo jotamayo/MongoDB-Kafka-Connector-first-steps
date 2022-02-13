@@ -57,6 +57,7 @@ We will create a new topic in kafka, we need download binary commands files befo
 Created topic first-topic.
 ```
 
+## Connector Sink
 
 It's time to create our first sink connector
 
