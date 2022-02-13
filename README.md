@@ -141,5 +141,5 @@ and there are new messages in a collection firstcollection
 
 ```
 cop> db.firstcollection.countDocuments()
-8
+1008
 ```
