@@ -130,7 +130,7 @@ curl --location --request GET 'http://localhost:8083/connectors' \
 We launch a producer
 
 ```
-./kafka-console-producer.sh --broker-list localhost:9092 --topic first-topic --property parse.key=true --property key.separator=: < /Users/soto/Downloads/data/exampleWithKey1000.data
+./kafka-console-producer.sh --broker-list localhost:9092 --topic first-topic --property parse.key=true --property key.separator=: < exampleWithKey1000.data
 ```
 
 So, we can see how there are new messages in a topic called first-topic
