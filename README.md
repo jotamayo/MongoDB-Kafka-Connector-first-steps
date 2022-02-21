@@ -21,7 +21,7 @@ See [List Connectors](https://www.confluent.io/product/connectors/?utm_medium=se
 ```
 $ git clone https://github.com/jotamayo/MongoDB-Kafka-Connector-first-steps.git
 $ cd MongoDB-Kafka-Connector-first-steps
-$ docker-compose -d
+$ docker-compose up -d
 ```
 
 When finish all images to run, then you can go to
