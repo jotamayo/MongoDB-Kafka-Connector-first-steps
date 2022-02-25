@@ -21,7 +21,7 @@ See [List Connectors](https://www.confluent.io/product/connectors/?utm_medium=se
 ```
 $ git clone https://github.com/jotamayo/MongoDB-Kafka-Connector-first-steps.git
 $ cd MongoDB-Kafka-Connector-first-steps
-$ docker-compose -d
+$ docker-compose up -d
 ```
 
 When finish all images to run, then you can go to
@@ -89,8 +89,7 @@ curl --location --request POST 'http://localhost:8083/connectors' \
 We can check  status new connector now
 
 ```
-curl --location --request GET 'http://localhost:8083/connectors/MongoDBFirstSink/status' \
---data-raw ''
+curl --location --request GET 'http://localhost:8083/connectors/MongoDBFirstSink/status'
 
 {
     "name": "MongoDBFirstSink",
@@ -120,8 +119,7 @@ curl --location --request DELETE 'http://localhost:8083/connectors/MongoDBFirstS
 Or list all connectors is this dns
 
 ```
-curl --location --request GET 'http://localhost:8083/connectors' \
---data-raw ''
+curl --location --request GET 'http://localhost:8083/connectors'
 
 [
     "MongoDBFirstSink",
